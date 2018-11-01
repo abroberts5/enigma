@@ -14,6 +14,7 @@ _The third and fourth digits of the key are the “C” rotation (52)_
 
 _The fourth and fifth digits of the key are the “D” rotation (21)_
 
+
 **The Offsets**
 
 _The date of message transmission is also factored into the encryption_
