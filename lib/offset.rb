@@ -1,6 +1,6 @@
 class Offset
   attr_reader   :current_date
-  
+
   def initialize
     @current_date = Time.now.strftime("%d%m%y").to_i
   end
@@ -10,23 +10,23 @@ class Offset
     date_squared.to_s[-4..-1]
   end
 
-  def rotation_a
-    rotation_a = last4[0]
-    rotation_a.to_i
+  def a_offset
+    offset_1 = last4[0]
+    offset_1.to_i
   end
 
-  def rotation_b
-    rotation_b = last4[1]
-    rotation_b.to_i
+  def b_offset
+    offset_2 = last4[1]
+    offset_2.to_i
   end
 
-  def rotation_c
-    rotation_c = last4[2]
-    rotation_c.to_i
+  def c_offset
+    offset_3 = last4[2]
+    offset_3.to_i
   end
 
-  def rotation_d
-    rotation_d = last4[3]
-    rotation_d.to_i
+  def d_offset
+    offset_4 = last4[3]
+    offset_4.to_i
   end
 end
