@@ -1,5 +1,6 @@
 class Key
   attr_reader   :num
+  
   def initialize
     @num  = [rand(1..9), rand(1..9), rand(1..9),
              rand(1..9), rand(1..9)]
