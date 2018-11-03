@@ -1,0 +1,49 @@
+require_relative 'test_helper'
+require './lib/enigma'
+require './lib/key'
+require './lib/offset'
+require './lib/final_rotation'
+
+class EnigmaTest < Minitest::Test
+  def test_it_exists
+    enigma = Enigma.new
+    assert_instance_of Enigma, enigma
+  end
+
+  def test_method_letters_has_array
+    enigma = Enigma.new
+    assert_equal 27, enigma.letters.length
+  end
+
+  def test_encrypt_method_returns_hash_with_keys
+    enigma = Enigma.new
+    result = enigma.encrypt('h', '02715', '040895')
+    assert_instance_of Hash, result
+    assert_equal '02715', result[:key]
+    assert_equal '040895', result[:date]
+  end
+
+  def test_it_can_group_by_index
+    enigma = Enigma.new
+    assert_instance_of Hash, enigma.group_by('hell')
+    expected = {0 => 'h', 1 => 'e', 2 => 'l', 3 => 'l'}
+    assert_equal expected, enigma.group_by('hell')
+  end
+
+  def test_key_is_returned_if_5_digits
+    enigma = Enigma.new
+    assert_equal 5, enigma.keyed_up('12345').length
+  end
+
+  def test_key_has_to_return_5_digits
+    enigma = Enigma.new
+    assert_equal 5, enigma.keyed_up('1234').length
+    assert_equal 5, enigma.keyed_up('12').length
+  end
+
+  # def test_scrambled_method_scrambles_string
+  #   enigma = Enigma.new
+  #   assert_equal 'ifmm', enigma.scrambled('hell', '02715')
+  # end
+
+end
