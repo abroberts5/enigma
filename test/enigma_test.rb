@@ -41,6 +41,12 @@ class EnigmaTest < Minitest::Test
     assert_equal 5, enigma.keyed_up('12').length
   end
 
+  def test_date_is_created_if_not_entered
+    enigma = Enigma.new
+    assert_equal 6, enigma.date_check('040895')
+    assert_equal 6, enigma.date_check('040')
+  end
+
   # def test_scrambled_method_scrambles_string
   #   enigma = Enigma.new
   #   assert_equal 'ifmm', enigma.scrambled('hell', '02715')
