@@ -1,8 +1,4 @@
 require_relative 'test_helper'
-require './lib/enigma'
-require './lib/key'
-require './lib/offset'
-require './lib/final_rotation'
 
 class EnigmaTest < Minitest::Test
   def test_it_exists
@@ -37,14 +33,14 @@ class EnigmaTest < Minitest::Test
 
   def test_key_has_to_return_5_digits
     enigma = Enigma.new
-    assert_equal 5, enigma.keyed_up('1234').length
-    assert_equal 5, enigma.keyed_up('12').length
+    assert_equal 5, enigma.keyed_up('123').length
+    assert_equal 5, enigma.keyed_up('1').length
   end
 
   def test_date_is_created_if_not_entered
     enigma = Enigma.new
-    assert_equal 6, enigma.date_check('040895')
-    assert_equal 6, enigma.date_check('040')
+    assert_equal 6, enigma.date_check('040895').length
+    assert_equal 6, enigma.date_check('040').length
   end
 
   # def test_scrambled_method_scrambles_string

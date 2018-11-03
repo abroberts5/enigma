@@ -17,9 +17,9 @@ class Enigma
   end
 
   def encrypt(string, key, date)
-    @encrypt_hash[:encryption] = scrambled(string, key)
+    @encrypt_hash[:encryption] = string
     @encrypt_hash[:key] = keyed_up(key)
-    @encrypt_hash[:date] = date
+    @encrypt_hash[:date] = date_check(date)
     @encrypt_hash
   end
 
@@ -29,6 +29,15 @@ class Enigma
       new_key.num.join
     else
       key
+    end
+  end
+
+  def date_check(date)
+    if date.length < 6
+      updated_date = Offset.new
+      updated_date.current_date.to_s
+    else
+      date
     end
   end
 

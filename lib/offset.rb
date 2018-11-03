@@ -2,11 +2,12 @@ class Offset
   attr_reader   :current_date
 
   def initialize
-    @current_date = Time.now.strftime("%d%m%y").to_i
+    @current_date = Time.now.strftime("%d%m%y")
   end
 
   def last4
-    date_squared = @current_date ** 2
+    date_to_integer = @current_date.to_i
+    date_squared = date_to_integer ** 2
     date_squared.to_s[-4..-1]
   end
 

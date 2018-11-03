@@ -1,9 +1,9 @@
 class Key
   attr_reader   :num
-  
+
   def initialize
-    @num  = [rand(1..9), rand(1..9), rand(1..9),
-             rand(1..9), rand(1..9)]
+    @num  = [rand(1..8), rand(1..8), rand(1..8),
+             rand(1..8), rand(1..8)]
   end
 
   def a_rotation
