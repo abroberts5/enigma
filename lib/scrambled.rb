@@ -1,6 +1,8 @@
 require_relative 'final_rotation'
 
 class Scrambled
+  attr_reader     :rotation,
+                  :phrase
 
   def initialize(final_rotation, phrase)
     @rotation = final_rotation

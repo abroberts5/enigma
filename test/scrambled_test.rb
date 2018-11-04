@@ -12,4 +12,10 @@ class ScrambledTest < Minitest::Test
     assert_equal '12345678', scrambled_eggs.rotation
     assert_equal 'hello world', scrambled_eggs.phrase
   end
+
+  def test_it_takes_rotation_and_breaks_it_up_from_final_class
+    scrambled_eggs = Scrambled.new('12345678', 'hello world')
+    expected = ['12', '34', '56', '78']
+    assert_equal expected, scrambled_eggs.rotation_array
+  end
 end
