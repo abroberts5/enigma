@@ -35,5 +35,4 @@ class ScrambledTest < Minitest::Test
     scrambled.rotation_array
     assert_equal 'phjywcuazob', scrambled.scrambled_eggs
   end
-
 end

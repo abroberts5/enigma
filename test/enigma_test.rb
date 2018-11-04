@@ -55,6 +55,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Hash, result
     assert_equal '02715', result[:key]
     assert_equal '040895', result[:date]
-    assert_equal 'h', result[:encryption]
+    assert_equal 'h', result[:decryption]
   end
 end

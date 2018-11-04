@@ -1,11 +1,13 @@
 require_relative 'key'
 require_relative 'offset'
 require_relative 'scrambled'
+require_relative 'unscrambled'
 
 class Enigma
 
   def initialize
     @encrypt_hash   = Hash.new
+    @decrypt_hash   = Hash.new
     @last_rotation  = []
     @new_phrase     = []
   end
@@ -19,12 +21,20 @@ class Enigma
   end
 
   def decrypt(string, key, date)
-
+    @decrypt_hash[:key] = key_check(key)
+    @decrypt_hash[:date] = date_check(date)
+    transition = final_rotation(key, date)
+    @decrypt_hash[:decryption] = decrypt_string(transition, string)
   end
 
   def update_string(final_rotation, string)
     string_conversion = Scrambled.new(final_rotation, string)
     string_conversion.scrambled_eggs
+  end
+
+  def decrypt_string(final_rotation, string)
+    string_conversion = UnScrambled.new(final_rotation, string)
+    string_conversion.loose_eggs
   end
 
   def key_check(key)
