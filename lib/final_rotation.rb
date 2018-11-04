@@ -25,4 +25,13 @@ class FinalRotation
   def forth_rotation
     @key.d_rotation + @offset.d_offset
   end
+
+  def full_final
+    final_string = ''
+    final_string << first_rotation.to_s
+    final_string << second_rotation.to_s
+    final_string << third_rotation.to_s
+    final_string << forth_rotation.to_s
+    final_string
+  end
 end
