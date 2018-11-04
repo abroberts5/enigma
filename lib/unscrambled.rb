@@ -21,4 +21,10 @@ class UnScrambled
     @new_set << @rotation[6..7].to_s
     @new_set
   end
+  
+  def shift_it
+    first_shift = @new_set.shift
+    push_back = @new_set.push(first_shift)
+    push_back
+  end
 end
