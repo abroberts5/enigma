@@ -31,7 +31,7 @@ class Scrambled
     push_back
   end
 
-  def scrambled
+  def scrambled_eggs
     new_case = @phrase.chars
     new_case.map do |character|
       if @letters.include?(character)

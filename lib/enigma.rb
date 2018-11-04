@@ -1,5 +1,6 @@
 require_relative 'key'
 require_relative 'offset'
+require_relative 'scrambled'
 
 class Enigma
 
@@ -13,6 +14,10 @@ class Enigma
     @encrypt_hash[:key] = keyed_up(key)
     @encrypt_hash[:date] = date_check(date)
     @encrypt_hash
+  end
+
+  def update_string(string)
+
   end
 
   def keyed_up(key)
@@ -42,5 +47,4 @@ class Enigma
     end
     grouped
   end
-
 end
