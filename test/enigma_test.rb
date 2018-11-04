@@ -6,11 +6,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
-  def test_method_letters_has_array
-    enigma = Enigma.new
-    assert_equal 27, enigma.letters.length
-  end
-
   def test_encrypt_method_returns_hash_with_keys
     enigma = Enigma.new
     result = enigma.encrypt('h', '02715', '040895')
@@ -42,10 +37,4 @@ class EnigmaTest < Minitest::Test
     assert_equal 6, enigma.date_check('040895').length
     assert_equal 6, enigma.date_check('040').length
   end
-
-  # def test_scrambled_method_scrambles_string
-  #   enigma = Enigma.new
-  #   assert_equal 'ifmm', enigma.scrambled('hell', '02715')
-  # end
-
 end

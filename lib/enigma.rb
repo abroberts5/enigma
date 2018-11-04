@@ -2,15 +2,8 @@ require_relative 'key'
 require_relative 'offset'
 
 class Enigma
-  attr_reader     :letters
 
   def initialize
-    @letters = ["a", "b", "c", "d", "e",
-                "f", "g", "h", "i", "j",
-                "k", "l", "m", "n", "o",
-                "p", "q", "r", "s", "t",
-                "u", "v", "w", "x", "y",
-                "z", " "]
     @encrypt_hash = Hash.new
     @new_phrase   = []
   end
@@ -49,17 +42,5 @@ class Enigma
     end
     grouped
   end
-
-   # new_message = []
-   # new_message = my_message.chars
-   # i = 0
-   # #integer position
-   # size = my_message.length
-   # new_encrypted_array = []
-   # while i <= size do
-   #     #first character
-   #     @array.find_index(new_message[i]) + final_rotation_a > @array.length
-   #     new_encrypted_array[i] = @array[(@array.find_index(new_message[i]) - (size + final_rotation_a) + 1).abs]
-   #     : new_encrypted_array[i] = @array[@array.find_index(new_message[i]) + final_rotation_a]
 
 end

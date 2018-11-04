@@ -24,4 +24,8 @@ class FinalRotationTest < Minitest::Test
     assert_equal 2, @final.third_rotation.to_s.length
     assert_equal 2, @final.forth_rotation.to_s.length
   end
+
+  def test_it_can_give_full_final_rotation
+    assert_equal 8, @final.full_final.length
+  end
 end

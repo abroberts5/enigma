@@ -5,9 +5,16 @@ class Scrambled
                   :phrase
 
   def initialize(final_rotation, phrase)
-    @rotation = final_rotation
-    @phrase   = phrase
-    @new_set  = []
+    @letters = ["a", "b", "c", "d", "e",
+                "f", "g", "h", "i", "j",
+                "k", "l", "m", "n", "o",
+                "p", "q", "r", "s", "t",
+                "u", "v", "w", "x", "y",
+                "z", " "]
+    @rotation   = final_rotation
+    @phrase     = phrase
+    @new_phrase = []
+    @new_set    = []
   end
 
   def rotation_array
@@ -18,20 +25,25 @@ class Scrambled
     @new_set
   end
 
-  # def scrambled(help_string, key = '02715')
-  #   new_case = group_by(help_string)
-  #   new_case = help_string.chars
-  #   new_case.map do |character|
-  #     if @letters.include?(character)
-  #       char_index = @letters.index(character) + 1
-  #       new_position = char_index # + key[0..1]
-  #       new_index = new_position % 27
-  #       new_encode = @letters[new_index].to_s
-  #       @new_phrase << new_encode
-  #     else
-  #       p "incorrect input"
-  #     end
-  #   end
-  #   @new_phrase.join
-  # end
+  def shift_it
+    first_shift = @new_set.shift
+    push_back = @new_set.push(first_shift)
+    push_back
+  end
+
+  def scrambled
+    new_case = @phrase.chars
+    new_case.map do |character|
+      if @letters.include?(character)
+        char_index = @letters.index(character) + 1
+        new_position = char_index + shift_it.first.to_i
+        new_index = new_position % 27
+        new_encode = @letters[new_index].to_s
+        @new_phrase << new_encode
+      else
+        p "incorrect input"
+      end
+    end
+    @new_phrase.join
+  end
 end

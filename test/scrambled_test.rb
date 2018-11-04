@@ -18,4 +18,22 @@ class ScrambledTest < Minitest::Test
     expected = ['12', '34', '56', '78']
     assert_equal expected, scrambled_eggs.rotation_array
   end
+
+  def test_it_can_shift_rotation_array
+    scrambled_eggs = Scrambled.new('12345678', 'hello world')
+    scrambled_eggs.rotation_array
+    expected = ['34', '56', '78', '12']
+    assert_equal expected, scrambled_eggs.shift_it
+    expected2 = ['56', '78', '12', '34']
+    assert_equal expected2, scrambled_eggs.shift_it
+    expected3 = ['78', '12', '34','56']
+    assert_equal expected3, scrambled_eggs.shift_it
+  end
+
+  def test_it_can_convert_phrase_from_scrambled
+    scrambled_eggs = Scrambled.new('12345678', 'hello world')
+    scrambled_eggs.rotation_array
+    assert_equal 'phjywcuazob', scrambled_eggs.scrambled
+  end
+
 end
