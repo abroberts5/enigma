@@ -1,7 +1,4 @@
 require_relative 'test_helper'
-require './lib/key'
-require './lib/offset'
-require './lib/final_rotation'
 
 class FinalRotationTest < Minitest::Test
   def setup
@@ -23,5 +20,9 @@ class FinalRotationTest < Minitest::Test
     assert_equal 2, @final.second_rotation.to_s.length
     assert_equal 2, @final.third_rotation.to_s.length
     assert_equal 2, @final.forth_rotation.to_s.length
+  end
+
+  def test_it_can_give_full_final_rotation
+    assert_equal 8, @final.full_final.length
   end
 end

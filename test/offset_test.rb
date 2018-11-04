@@ -9,7 +9,7 @@ class OffsetTest < Minitest::Test
 
   def test_it_can_return_todays_date
     offset = Offset.new
-    todays_date = Time.now.strftime("%d%m%y").to_i
+    todays_date = Time.now.strftime("%d%m%y")
     assert_equal todays_date, offset.current_date
   end
 
