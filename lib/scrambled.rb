@@ -1,5 +1,3 @@
-require_relative 'final_rotation'
-
 class Scrambled
   attr_reader     :rotation,
                   :phrase

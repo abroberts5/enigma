@@ -1,7 +1,4 @@
 require_relative 'test_helper'
-require './lib/key'
-require './lib/offset'
-require './lib/final_rotation'
 
 class FinalRotationTest < Minitest::Test
   def setup

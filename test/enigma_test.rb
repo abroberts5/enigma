@@ -12,17 +12,18 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Hash, result
     assert_equal '02715', result[:key]
     assert_equal '040895', result[:date]
+    assert_equal 'i', result[:encryption]
   end
 
   def test_key_is_returned_if_5_digits
     enigma = Enigma.new
-    assert_equal 5, enigma.keyed_up('12345').length
+    assert_equal 5, enigma.key_check('12345').length
   end
 
   def test_key_has_to_return_5_digits
     enigma = Enigma.new
-    assert_equal 5, enigma.keyed_up('123').length
-    assert_equal 5, enigma.keyed_up('1').length
+    assert_equal 5, enigma.key_check('123').length
+    assert_equal 5, enigma.key_check('1').length
   end
 
   def test_date_is_created_if_not_entered
@@ -40,7 +41,12 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_update_string_for_encryption_helper
     enigma = Enigma.new
-    assert_equal 'tlkjh', enigma.update_string('hello')
+    assert_equal 'ifmmp', enigma.update_string('12345678', 'hello')
+  end
+
+  def test_final_rotation_method_can_be_condensed
+    enigma = Enigma.new
+    assert_equal 7 || 8, enigma.final_rotation('02715', '040895').length
   end
 
 end
