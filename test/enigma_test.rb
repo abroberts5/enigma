@@ -49,4 +49,12 @@ class EnigmaTest < Minitest::Test
     assert_equal 7 || 8, enigma.final_rotation('02715', '040895').length
   end
 
+  def test_it_can_decrypt_string_in_the_same_manner
+    enigma = Enigma.new
+    result = enigma.decrypt('i', '02715', '040895')
+    assert_instance_of Hash, result
+    assert_equal '02715', result[:key]
+    assert_equal '040895', result[:date]
+    assert_equal 'h', result[:encryption]
+  end
 end

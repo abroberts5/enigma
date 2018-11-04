@@ -18,6 +18,10 @@ class Enigma
     @encrypt_hash
   end
 
+  def decrypt(string, key, date)
+
+  end
+
   def update_string(final_rotation, string)
     string_conversion = Scrambled.new(final_rotation, string)
     string_conversion.scrambled_eggs
