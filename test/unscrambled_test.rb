@@ -17,4 +17,15 @@ class UnScrambledTest < Minitest::Test
     expected = ['12', '34', '56', '78']
     assert_equal expected, loosey.rotation_array
   end
+
+  def test_it_can_shift_rotation_array
+    loosey = UnScrambled.new('12345678', 'poiurunfksr')
+    loosey.rotation_array
+    expected = ['34', '56', '78', '12']
+    assert_equal expected, loosey.shift_it
+    expected2 = ['56', '78', '12', '34']
+    assert_equal expected2, loosey.shift_it
+    expected3 = ['78', '12', '34','56']
+    assert_equal expected3, loosey.shift_it
+  end
 end
