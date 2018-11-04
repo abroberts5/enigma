@@ -28,4 +28,10 @@ class UnScrambledTest < Minitest::Test
     expected3 = ['78', '12', '34','56']
     assert_equal expected3, loosey.shift_it
   end
+
+  def test_it_can_unscramble_phrase
+    loosey = UnScrambled.new('12345678', 'poiurunfksr')
+    loosey.rotation_array
+    assert_equal 'phjywcuazob', loosey.loose_eggs
+  end
 end
