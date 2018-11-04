@@ -8,11 +8,10 @@ class EnigmaTest < Minitest::Test
 
   def test_encrypt_method_returns_hash_with_keys
     enigma = Enigma.new
-    result = enigma.encrypt('h', '02715', '040895')
-    assert_instance_of Hash, result
+    result = enigma.encrypt('hello', '02715', '040895')
     assert_equal '02715', result[:key]
     assert_equal '040895', result[:date]
-    assert_equal 'i', result[:encryption]
+    assert_equal 'keder', result[:encryption]
   end
 
   def test_key_is_returned_if_5_digits
@@ -41,20 +40,19 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_update_string_for_encryption_helper
     enigma = Enigma.new
-    assert_equal 'ifmmp', enigma.update_string('12345678', 'hello')
+    assert_equal 'tlni ', enigma.update_string('12345678', 'hello')
   end
 
   def test_final_rotation_method_can_be_condensed
     enigma = Enigma.new
-    assert_equal 7 || 8, enigma.final_rotation('02715', '040895').length
+    assert_equal 8, enigma.final_rotation('02715', '040895').length
   end
 
   def test_it_can_decrypt_string_in_the_same_manner
     enigma = Enigma.new
-    result = enigma.decrypt('i', '02715', '040895')
-    assert_instance_of Hash, result
+    result = enigma.decrypt('keder', '02715', '040895')
     assert_equal '02715', result[:key]
     assert_equal '040895', result[:date]
-    assert_equal 'h', result[:decryption]
+    assert_equal 'hello', result[:decryption]
   end
 end

@@ -16,10 +16,10 @@ class Scrambled
   end
 
   def rotation_array
+    @new_set << @rotation[6..7].to_s
     @new_set << @rotation[0..1].to_s
     @new_set << @rotation[2..3].to_s
     @new_set << @rotation[4..5].to_s
-    @new_set << @rotation[6..7].to_s
     @new_set
   end
 
@@ -33,7 +33,7 @@ class Scrambled
     new_case = @phrase.chars
     new_case.map do |character|
       if @letters.include?(character)
-        char_index = @letters.index(character) + 1
+        char_index = @letters.index(character)
         new_position = char_index + shift_it.first.to_i
         new_index = new_position % 27
         new_encode = @letters[new_index].to_s

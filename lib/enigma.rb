@@ -2,7 +2,6 @@ require_relative 'key'
 require_relative 'offset'
 require_relative 'scrambled'
 require_relative 'unscrambled'
-
 class Enigma
 
   def initialize
@@ -25,15 +24,18 @@ class Enigma
     @decrypt_hash[:date] = date_check(date)
     transition = final_rotation(key, date)
     @decrypt_hash[:decryption] = decrypt_string(transition, string)
+    @decrypt_hash
   end
 
   def update_string(final_rotation, string)
     string_conversion = Scrambled.new(final_rotation, string)
+    string_conversion.rotation_array
     string_conversion.scrambled_eggs
   end
 
   def decrypt_string(final_rotation, string)
     string_conversion = UnScrambled.new(final_rotation, string)
+    string_conversion.rotation_array
     string_conversion.loose_eggs
   end
 
@@ -61,7 +63,8 @@ class Enigma
     @last_rotation << (key[1..2].to_i + new_date[-3].to_i).to_s
     @last_rotation << (key[2..3].to_i + new_date[-2].to_i).to_s
     @last_rotation << (key[3..4].to_i + new_date[-1].to_i).to_s
-    @last_rotation.join
+    @last_rotation.join.rjust(8, '0')
+    # require 'pry'; binding.pry
   end
 
   def group_by(string_letters)
