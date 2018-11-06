@@ -11,7 +11,7 @@ class Enigma
     @new_phrase     = []
   end
 
-  def encrypt(string, key, date)
+  def encrypt(string, key = default_key, date = default_offset)
     @encrypt_hash[:key] = key_check(key)
     @encrypt_hash[:date] = date_check(date)
     transition = final_rotation(key, date)
@@ -28,13 +28,13 @@ class Enigma
   end
 
   def update_string(final_rotation, string)
-    string_conversion = Scrambled.new(final_rotation, string)
+    string_conversion = Scrambled.new(final_rotation, string.downcase)
     string_conversion.rotation_array
     string_conversion.scrambled_eggs
   end
 
   def decrypt_string(final_rotation, string)
-    string_conversion = UnScrambled.new(final_rotation, string)
+    string_conversion = UnScrambled.new(final_rotation, string.downcase)
     string_conversion.rotation_array
     string_conversion.loose_eggs
   end
@@ -48,6 +48,11 @@ class Enigma
     end
   end
 
+  def default_key
+    new_key = Key.new
+    new_key.num.join
+  end
+
   def date_check(date)
     if date.length < 6
       updated_date = Offset.new
@@ -57,6 +62,11 @@ class Enigma
     end
   end
 
+  def default_offset
+    new_offset = Offset.new
+    new_offset.current_date.to_s
+  end
+
   def final_rotation(key, date)
     new_date = (date.to_i ** 2).to_s
     @last_rotation << (key[0..1].to_i + new_date[-4].to_i).to_s
@@ -64,7 +74,6 @@ class Enigma
     @last_rotation << (key[2..3].to_i + new_date[-2].to_i).to_s
     @last_rotation << (key[3..4].to_i + new_date[-1].to_i).to_s
     @last_rotation.join.rjust(8, '0')
-    # require 'pry'; binding.pry
   end
 
   def group_by(string_letters)

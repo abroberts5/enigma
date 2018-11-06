@@ -14,6 +14,12 @@ class EnigmaTest < Minitest::Test
     assert_equal 'keder', result[:encryption]
   end
 
+  def test_default_key_and_offset_method
+    enigma = Enigma.new
+    assert_equal 5, enigma.default_key.length
+    assert_equal 6, enigma.default_offset.length
+  end
+
   def test_key_is_returned_if_5_digits
     enigma = Enigma.new
     assert_equal 5, enigma.key_check('12345').length

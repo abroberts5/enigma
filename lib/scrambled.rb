@@ -39,7 +39,7 @@ class Scrambled
         new_encode = @letters[new_index].to_s
         @new_phrase << new_encode
       else
-        p "incorrect input"
+        @new_phrase << character
       end
     end
     @new_phrase.join
