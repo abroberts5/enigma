@@ -1,32 +1,28 @@
 # enigma
 
-**The Key**
+Functionality - 3
 
-_Each message uses a unique encryption key_
+Enigma class holds the encrypt and decrypt methods which pull from other classes
+to check and adjust keys and offsets where needed. Command line interface works
+with key and offset info.
 
-_The key is five digits, like 41521_
+Object Oriented Programming - 3
 
-_The first two digits of the key are the “A” rotation (41)_
+There are 4 classes broken out and one functional class that was not ultimately
+needed. There were two methods exactly that had more than 7 lines and they
+were the encrypt and decrypt methods. All other methods used helpers to keep them
+condensed and still easily readable.
 
-_The second and third digits of the key are the “B” rotation (15)_
+Test Driven Development - 3
 
-_The third and fourth digits of the key are the “C” rotation (52)_
+I feel I did well with testing functionality before writing code and it helped
+get the needed results while testing how helper methods would react to input
+from other methods. So happy we learned this way of coding because it keeps you
+from getting stuck on functionality that is probably not needed in the long run.
 
-_The fourth and fifth digits of the key are the “D” rotation (21)_
+Version Control - 3
 
-
-**The Offsets**
-
-_The date of message transmission is also factored into the encryption_
-
-_Consider the date in the format DDMMYY, like 240818_
-
-_Square the numeric form (57993309124) and find the last four digits (9124)_
-
-_The first digit is the “A offset” (9)_
-
-_The second digit is the “B offset” (1)_
-
-_The third digit is the “C offset” (2)_
-
-_The fourth digit is the “D offset” (4)_
+I created 5 branches though I only had about 42 commits. I'm sure I could've
+done more though I didn't want to let go of my thought process at times. I
+also had about 8 pull requests down to master while moving through the
+iterations. 
