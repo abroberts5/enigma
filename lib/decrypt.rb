@@ -10,4 +10,4 @@ read_decryption = open(decryption_txt, 'w')
 
 read_decryption.write(result[:decryption])
 
-print result
+puts "Created #{decryption_txt} with the key #{result[:key]} and date #{result[:date]}"

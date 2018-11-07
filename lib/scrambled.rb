@@ -34,6 +34,7 @@ class Scrambled
     new_case.map do |character|
       if @letters.include?(character)
         char_index = @letters.index(character)
+        # char_index direction changes position
         new_position = char_index + shift_it.first.to_i
         new_index = new_position % 27
         new_encode = @letters[new_index].to_s

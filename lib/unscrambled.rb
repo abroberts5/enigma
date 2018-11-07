@@ -39,7 +39,7 @@ class UnScrambled
         new_decode = @letters[new_index].to_s
         @new_phrase << new_decode
       else
-        p "incorrect input"
+        @new_phrase << character
       end
     end
     @new_phrase.join
