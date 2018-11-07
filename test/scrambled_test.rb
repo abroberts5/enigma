@@ -35,4 +35,10 @@ class ScrambledTest < Minitest::Test
     scrambled.rotation_array
     assert_equal 'keder ohulw', scrambled.scrambled_eggs
   end
+
+  def test_it_can_convert_phrase_from_scrambled_with_special_characters
+    scrambled = Scrambled.new('03277320', 'hello world!')
+    scrambled.rotation_array
+    assert_equal 'keder ohulw!', scrambled.scrambled_eggs
+  end
 end

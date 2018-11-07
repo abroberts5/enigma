@@ -34,4 +34,10 @@ class UnScrambledTest < Minitest::Test
     loosey.rotation_array
     assert_equal 'hello world', loosey.loose_eggs
   end
+
+  def test_it_can_unscramble_phrase_with_special_characters
+    loosey = UnScrambled.new('03277320', 'keder ohulw!')
+    loosey.rotation_array
+    assert_equal 'hello world!', loosey.loose_eggs
+  end
 end
