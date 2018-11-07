@@ -75,14 +75,4 @@ class Enigma
     @last_rotation << (key[3..4].to_i + new_date[-1].to_i).to_s
     @last_rotation.join.rjust(8, '0')
   end
-
-  def group_by(string_letters)
-    array = []
-    grouped = Hash.new{|hash, key| hash[key] = []}
-    array << string_letters.chars
-    array.first.each_with_index do |letter, index|
-      grouped[index] = letter
-    end
-    grouped
-  end
 end

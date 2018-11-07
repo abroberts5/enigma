@@ -37,13 +37,6 @@ class EnigmaTest < Minitest::Test
     assert_equal 6, enigma.date_check('040').length
   end
 
-  def test_it_can_group_by_index
-    enigma = Enigma.new
-    assert_instance_of Hash, enigma.group_by('hell')
-    expected = {0 => 'h', 1 => 'e', 2 => 'l', 3 => 'l'}
-    assert_equal expected, enigma.group_by('hell')
-  end
-
   def test_it_can_update_string_for_encryption_helper
     enigma = Enigma.new
     assert_equal 'tlni ', enigma.update_string('12345678', 'hello')
